@@ -1,0 +1,18 @@
+{
+"if": {
+    "anyOf": [
+      {
+        "value": "[length(field('tags'))]",
+        "equals": "0"
+      },
+      {
+          "field": "tags",
+          "exists": "false"
+      }
+
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}

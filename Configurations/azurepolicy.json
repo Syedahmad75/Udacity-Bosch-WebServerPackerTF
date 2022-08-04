@@ -1,0 +1,33 @@
+{
+    "properties": {
+        "displayName": "Deny the creation of resources that do not have tags",
+        "description": "This policy ensures that all indexed resources in our subscription have tags and deny deployment if they do not.",
+        "mode": "indexed",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Tags requirement Mandatory"
+        },
+        "policyRule": {
+            "if": {
+              "anyOf": [
+                {
+                  "value": "[length(field('tags'))]",
+                  "equals": "0"
+                },
+                {
+                    "field": "tags",
+                    "exists": "false"
+                },
+                {
+                    "value": "[less(length(field('tags')),1]",
+                    "equals": "true"
+                }
+
+              ]
+            },
+            "then": {
+              "effect": "deny"
+            }
+        }
+    }
+}
