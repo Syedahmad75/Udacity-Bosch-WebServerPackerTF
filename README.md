@@ -60,8 +60,8 @@ Execute it using powershell ISE - `./createImage.ps1`\
 This script Creates a server image, which we have created using Packer. Screeshot below-\
 ![packer-image](https://i.imgur.com/Mz1vbIt.png)
 you can Optionally delete these images. you have to change the resource name and image name in the deletePackerImage.ps1 file.\
-Execute it using powershell ISE - `./deletePackerImage.ps1`\
-6. Copy the Managedimageid and change it in vars.tf file\
+Execute it using powershell ISE - `./deletePackerImage.ps1`
+6. Copy the ManagedImageid and change it in vars.tf file\
 When the image is created, copy the ManagedimageId and change it in Configuaration\vars.tf file for the variable\
 packerImage. Screenshot below-\
 ![packer-image](https://i.imgur.com/IGIfJtK.png)
