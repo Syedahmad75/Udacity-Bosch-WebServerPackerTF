@@ -50,7 +50,7 @@ variable "colorBand" {
 }
 variable "suffix" {
   description = "Resourcetype-Environment-AzureRegion-Instance, Convention for naming azure Resources"
-  default     = "dev-westus-001"
+  default     = "dev-westeurope-001"
 }
 variable "storageAccountType" {
   description = "Storage Account Type"

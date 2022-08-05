@@ -11,7 +11,7 @@ Write-Output "pre-deploy steps for the TF resources finished successfully !"
 # Deploy
 Write-Output "Starting deploy steps for the TF resources..."
 terraform plan -out solution.plan
-terraform apply "solution.plan"
+terraform apply -auto-approve
 Write-Output "Deploy steps for the TF resources finished successfully !"
 
 popd

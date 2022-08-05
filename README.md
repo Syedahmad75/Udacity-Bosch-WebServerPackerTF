@@ -22,14 +22,14 @@ We assume that, the code is cloned in local disk in Drive E inside Udacity-Bosch
 2. Exection starts from E:\Udacity-Bosch-Devops\WebServerProject\Scripts
 3. `cd E:\Udacity-Bosch-Devops\WebServerProject\Scripts` 
   ![setpath](https://i.imgur.com/AZIqsbD.png)
-4. In your terminal, use the Azure CLI tool to setup your account permissions locally.Make sure that your login is already done, if not please use the `az login`
+4. In terminal, use the Azure CLI tool to setup your account permissions locally. Make sure that your login is already done, if not please use the `az login`
    ![setpath](https://i.imgur.com/yzu4xLX.png)
 
-5. you can also set the subscription name using the following command (optional but recommended)\
+5. you can also set the subscription name using the following command (recommended)\
    `az account set --name <subscriptionName>`
 
 ### Customization
-Make sure that you Copy the Managedimageid and change it in vars.tf file\
+Make sure to copu Managedimageid and change it in vars.tf file\
 When the image is created, copy the ManagedimageId and change it in Configuaration\vars.tf file for the variable\
 Details are in Instructions step 6. 
 
@@ -39,40 +39,40 @@ Details are in Instructions step 6.
 1. Follow the prerequsite steps 
 2. Create Policy\
 Apply Policy -createPolicy.ps1\
-Execute it using powershell ISE - ./createPolicy\
+Execute it using powershell ISE - `./createPolicy`\
 ![tagging-policy](https://i.imgur.com/LhjRxVk.png)\
 The script also lists the policies existing in the subscription. Screeshot below-\
 ![az-list-policies](https://i.imgur.com/jldBaDw.png)
 
 3. Create ResourceGroup\
-Execute it using powershell ISE - ./createResourceGroup.ps1\
+Execute it using powershell ISE - `./createResourceGroup.ps1`\
 This script checks if the ResourceGroup is already created,it does not create a new one, otherwise it creates a new\
 ResourceGroup and validate it. Screeshot below-\
 ![resourcegroup](https://i.imgur.com/oh9mldZ.png)
 
 4. Create ServicePrinciple\
-Execute it using powershell ISE - ./createServicePrinciple.ps1\
-This script Create Service Principle and parse into Json values and then store the secrets in the environment variables.\ Screeshot below-\
+Execute it using powershell ISE - `./createServicePrinciple.ps1`\
+This script Create Service Principle and parse into Json values and then store the secrets in the environment variables. Screeshot below-\
 ![service-principle](https://i.imgur.com/kRnY07a.png)
 
 5.  Create PackerImage\
-Execute it using powershell ISE - ./createImage.ps1\
+Execute it using powershell ISE - `./createImage.ps1`\
 This script Creates a server image, which we have created using Packer. Screeshot below-\
-![packer-image](https://i.imgur.com/Mz1vbIt.png
+![packer-image](https://i.imgur.com/Mz1vbIt.png)
 you can Optionally delete these images. you have to change the resource name and image name in the deletePackerImage.ps1 file.\
-Execute it using powershell ISE - ./deletePackerImage.ps1\
+Execute it using powershell ISE - `./deletePackerImage.ps1`\
 6. Copy the Managedimageid and change it in vars.tf file\
 When the image is created, copy the ManagedimageId and change it in Configuaration\vars.tf file for the variable\
 packerImage. Screenshot below-\
 ![packer-image](https://i.imgur.com/IGIfJtK.png)
 ![packer-image](https://i.imgur.com/wlBVRwt.png)
 7. Deploy Resources with Terraform\
-Execute it using powershell ISE - ./createResources.ps1\
+Execute it using powershell ISE - `./createResources.ps1`\
 This script deploys your whole infrasturcuture using Terraform and Packer Image. Screeshot below-\
 ![Terraform-output](https://i.imgur.com/Y03FbOv.png)
 ![Terraform-resources-list](https://i.imgur.com/cQRyauC.png)
 8. destroy Resources (optional)
-Execute it using powershell ISE - ./DeleteReources.ps1
+Execute it using powershell ISE - `./DeleteReources.ps1`\
 This script destroys your infrastructure. 
 
 
@@ -302,7 +302,7 @@ When you deployed infrastructure following the instructions above, your ourput s
 6. Make Sure that you changed the managedimageid in vars.tf file. 
 7. createResources.ps1 Output
     ```
-    Starting pre-deploy steps for the TF resources...
+        Starting pre-deploy steps for the TF resources...
 
     [0m[1mInitializing the backend...[0m
 
@@ -341,10 +341,10 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mid[0m[0m                           = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m                     = "westeurope"
         [32m+[0m [0m[1m[0mmanaged[0m[0m                      = true
-        [32m+[0m [0m[1m[0mname[0m[0m                         = "avail-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                         = "avail-dev-westeurope-001"
         [32m+[0m [0m[1m[0mplatform_fault_domain_count[0m[0m  = 2
         [32m+[0m [0m[1m[0mplatform_update_domain_count[0m[0m = 2
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m          = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m          = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0mtags[0m[0m                         = (known after apply)
         }
 
@@ -352,10 +352,10 @@ When you deployed infrastructure following the instructions above, your ourput s
     [0m  [32m+[0m[0m resource "azurerm_lb" "webserverTfPackerLB" {
         [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m             = "westeurope"
-        [32m+[0m [0m[1m[0mname[0m[0m                 = "lbi-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                 = "lbi-dev-westeurope-001"
         [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m   = (known after apply)
         [32m+[0m [0m[1m[0mprivate_ip_addresses[0m[0m = (known after apply)
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m  = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m  = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msku[0m[0m                  = "Basic"
         [32m+[0m [0m[1m[0msku_tier[0m[0m             = "Regional"
         [32m+[0m [0m[1m[0mtags[0m[0m                 = (known after apply)
@@ -366,7 +366,7 @@ When you deployed infrastructure following the instructions above, your ourput s
             [32m+[0m [0m[1m[0mid[0m[0m                                                 = (known after apply)
             [32m+[0m [0m[1m[0minbound_nat_rules[0m[0m                                  = (known after apply)
             [32m+[0m [0m[1m[0mload_balancer_rules[0m[0m                                = (known after apply)
-            [32m+[0m [0m[1m[0mname[0m[0m                                               = "frontendip-dev-westus-001"
+            [32m+[0m [0m[1m[0mname[0m[0m                                               = "frontendip-dev-westeurope-001"
             [32m+[0m [0m[1m[0moutbound_rules[0m[0m                                     = (known after apply)
             [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m                                 = (known after apply)
             [32m+[0m [0m[1m[0mprivate_ip_address_allocation[0m[0m                      = (known after apply)
@@ -384,7 +384,7 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
         [32m+[0m [0m[1m[0mload_balancing_rules[0m[0m      = (known after apply)
         [32m+[0m [0m[1m[0mloadbalancer_id[0m[0m           = (known after apply)
-        [32m+[0m [0m[1m[0mname[0m[0m                      = "backend-address-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                      = "backend-address-dev-westeurope-001"
         [32m+[0m [0m[1m[0moutbound_rules[0m[0m            = (known after apply)
         [32m+[0m [0m[1m[0mresource_group_name[0m[0m       = (known after apply)
         }
@@ -401,7 +401,7 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mid[0m[0m                              = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m                        = "westeurope"
         [32m+[0m [0m[1m[0mmax_bid_price[0m[0m                   = -1
-        [32m+[0m [0m[1m[0mname[0m[0m                            = "linux-vm-dev-westus-001-0"
+        [32m+[0m [0m[1m[0mname[0m[0m                            = "linux-vm-dev-westeurope-001-0"
         [32m+[0m [0m[1m[0mnetwork_interface_ids[0m[0m           = (known after apply)
         [32m+[0m [0m[1m[0mpatch_mode[0m[0m                      = "ImageDefault"
         [32m+[0m [0m[1m[0mplatform_fault_domain[0m[0m           = -1
@@ -411,7 +411,7 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mprovision_vm_agent[0m[0m              = true
         [32m+[0m [0m[1m[0mpublic_ip_address[0m[0m               = (known after apply)
         [32m+[0m [0m[1m[0mpublic_ip_addresses[0m[0m             = (known after apply)
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m             = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m             = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msize[0m[0m                            = "Standard_D2s_v3"
         [32m+[0m [0m[1m[0msource_image_id[0m[0m                 = "/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/packe
     rImageRG/providers/Microsoft.Compute/images/packerImage-UdacityBosch"
@@ -440,7 +440,7 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mid[0m[0m                              = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m                        = "westeurope"
         [32m+[0m [0m[1m[0mmax_bid_price[0m[0m                   = -1
-        [32m+[0m [0m[1m[0mname[0m[0m                            = "linux-vm-dev-westus-001-1"
+        [32m+[0m [0m[1m[0mname[0m[0m                            = "linux-vm-dev-westeurope-001-1"
         [32m+[0m [0m[1m[0mnetwork_interface_ids[0m[0m           = (known after apply)
         [32m+[0m [0m[1m[0mpatch_mode[0m[0m                      = "ImageDefault"
         [32m+[0m [0m[1m[0mplatform_fault_domain[0m[0m           = -1
@@ -450,7 +450,7 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mprovision_vm_agent[0m[0m              = true
         [32m+[0m [0m[1m[0mpublic_ip_address[0m[0m               = (known after apply)
         [32m+[0m [0m[1m[0mpublic_ip_addresses[0m[0m             = (known after apply)
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m             = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m             = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msize[0m[0m                            = "Standard_D2s_v3"
         [32m+[0m [0m[1m[0msource_image_id[0m[0m                 = "/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/packe
     rImageRG/providers/Microsoft.Compute/images/packerImage-UdacityBosch"
@@ -479,9 +479,9 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mlocation[0m[0m                      = "westeurope"
         [32m+[0m [0m[1m[0mlogical_sector_size[0m[0m           = (known after apply)
         [32m+[0m [0m[1m[0mmax_shares[0m[0m                    = (known after apply)
-        [32m+[0m [0m[1m[0mname[0m[0m                          = "md-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                          = "md-dev-westeurope-001"
         [32m+[0m [0m[1m[0mpublic_network_access_enabled[0m[0m = true
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msource_uri[0m[0m                    = (known after apply)
         [32m+[0m [0m[1m[0mstorage_account_type[0m[0m          = "Standard_LRS"
         [32m+[0m [0m[1m[0mtags[0m[0m                          = (known after apply)
@@ -499,16 +499,16 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0minternal_domain_name_suffix[0m[0m   = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m                      = "westeurope"
         [32m+[0m [0m[1m[0mmac_address[0m[0m                   = (known after apply)
-        [32m+[0m [0m[1m[0mname[0m[0m                          = "nic-dev-westus-001-server1-udacity"
+        [32m+[0m [0m[1m[0mname[0m[0m                          = "nic-dev-westeurope-001-server1-udacity"
         [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m            = (known after apply)
         [32m+[0m [0m[1m[0mprivate_ip_addresses[0m[0m          = (known after apply)
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0mtags[0m[0m                          = (known after apply)
         [32m+[0m [0m[1m[0mvirtual_machine_id[0m[0m            = (known after apply)
 
         [32m+[0m [0mip_configuration {
             [32m+[0m [0m[1m[0mgateway_load_balancer_frontend_ip_configuration_id[0m[0m = (known after apply)
-            [32m+[0m [0m[1m[0mname[0m[0m                                               = "ipconfig-dev-westus-001-udacity"
+            [32m+[0m [0m[1m[0mname[0m[0m                                               = "ipconfig-dev-westeurope-001-udacity"
             [32m+[0m [0m[1m[0mprimary[0m[0m                                            = (known after apply)
             [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m                                 = (known after apply)
             [32m+[0m [0m[1m[0mprivate_ip_address_allocation[0m[0m                      = "Dynamic"
@@ -528,16 +528,16 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0minternal_domain_name_suffix[0m[0m   = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m                      = "westeurope"
         [32m+[0m [0m[1m[0mmac_address[0m[0m                   = (known after apply)
-        [32m+[0m [0m[1m[0mname[0m[0m                          = "nic-dev-westus-001-server2-udacity"
+        [32m+[0m [0m[1m[0mname[0m[0m                          = "nic-dev-westeurope-001-server2-udacity"
         [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m            = (known after apply)
         [32m+[0m [0m[1m[0mprivate_ip_addresses[0m[0m          = (known after apply)
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m           = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0mtags[0m[0m                          = (known after apply)
         [32m+[0m [0m[1m[0mvirtual_machine_id[0m[0m            = (known after apply)
 
         [32m+[0m [0mip_configuration {
             [32m+[0m [0m[1m[0mgateway_load_balancer_frontend_ip_configuration_id[0m[0m = (known after apply)
-            [32m+[0m [0m[1m[0mname[0m[0m                                               = "ipconfig-dev-westus-001-udacity"
+            [32m+[0m [0m[1m[0mname[0m[0m                                               = "ipconfig-dev-westeurope-001-udacity"
             [32m+[0m [0m[1m[0mprimary[0m[0m                                            = (known after apply)
             [32m+[0m [0m[1m[0mprivate_ip_address[0m[0m                                 = (known after apply)
             [32m+[0m [0m[1m[0mprivate_ip_address_allocation[0m[0m                      = "Dynamic"
@@ -550,7 +550,7 @@ When you deployed infrastructure following the instructions above, your ourput s
     [0m  [32m+[0m[0m resource "azurerm_network_interface_backend_address_pool_association" "webserverTfPackerBackendNicLB" {
         [32m+[0m [0m[1m[0mbackend_address_pool_id[0m[0m = (known after apply)
         [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
-        [32m+[0m [0m[1m[0mip_configuration_name[0m[0m   = "ipconfig-dev-westus-001-udacity"
+        [32m+[0m [0m[1m[0mip_configuration_name[0m[0m   = "ipconfig-dev-westeurope-001-udacity"
         [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m    = (known after apply)
         }
 
@@ -558,7 +558,7 @@ When you deployed infrastructure following the instructions above, your ourput s
     [0m  [32m+[0m[0m resource "azurerm_network_interface_backend_address_pool_association" "webserverTfPackerBackendNicLB" {
         [32m+[0m [0m[1m[0mbackend_address_pool_id[0m[0m = (known after apply)
         [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
-        [32m+[0m [0m[1m[0mip_configuration_name[0m[0m   = "ipconfig-dev-westus-001-udacity"
+        [32m+[0m [0m[1m[0mip_configuration_name[0m[0m   = "ipconfig-dev-westeurope-001-udacity"
         [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m    = (known after apply)
         }
 
@@ -566,8 +566,8 @@ When you deployed infrastructure following the instructions above, your ourput s
     [0m  [32m+[0m[0m resource "azurerm_network_security_group" "webserverTfPackerNSG" {
         [32m+[0m [0m[1m[0mid[0m[0m                  = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m            = "westeurope"
-        [32m+[0m [0m[1m[0mname[0m[0m                = "nsg-dev-westus-001"
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                = "nsg-dev-westeurope-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msecurity_rule[0m[0m       = [
             [32m+[0m [0m{
                 [32m+[0m [0maccess                                     = "Allow"
@@ -619,8 +619,8 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mip_address[0m[0m              = (known after apply)
         [32m+[0m [0m[1m[0mip_version[0m[0m              = "IPv4"
         [32m+[0m [0m[1m[0mlocation[0m[0m                = "westeurope"
-        [32m+[0m [0m[1m[0mname[0m[0m                    = "pip-dev-westus-001"
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m     = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                    = "pip-dev-westeurope-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m     = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msku[0m[0m                     = "Basic"
         [32m+[0m [0m[1m[0msku_tier[0m[0m                = "Regional"
         [32m+[0m [0m[1m[0mtags[0m[0m                    = (known after apply)
@@ -631,7 +631,7 @@ When you deployed infrastructure following the instructions above, your ourput s
     [0m  [32m+[0m[0m resource "azurerm_resource_group" "webserverTfPackerRG" {
         [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m = "westeurope"
-        [32m+[0m [0m[1m[0mname[0m[0m     = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m     = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0mtags[0m[0m     = (known after apply)
         }
 
@@ -644,9 +644,9 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0menforce_private_link_endpoint_network_policies[0m[0m = false
         [32m+[0m [0m[1m[0menforce_private_link_service_network_policies[0m[0m  = false
         [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
-        [32m+[0m [0m[1m[0mname[0m[0m                                           = "snet-dev-westus-001"
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m                            = "rg-dev-westus-001"
-        [32m+[0m [0m[1m[0mvirtual_network_name[0m[0m                           = "vnet-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                                           = "snet-dev-westeurope-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m                            = "rg-dev-westeurope-001"
+        [32m+[0m [0m[1m[0mvirtual_network_name[0m[0m                           = "vnet-dev-westeurope-001"
         }
 
     [1m  # azurerm_virtual_network.webserverTfPackerVNET[0m will be created[0m[0m
@@ -658,8 +658,8 @@ When you deployed infrastructure following the instructions above, your ourput s
         [32m+[0m [0m[1m[0mguid[0m[0m                  = (known after apply)
         [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
         [32m+[0m [0m[1m[0mlocation[0m[0m              = "westeurope"
-        [32m+[0m [0m[1m[0mname[0m[0m                  = "vnet-dev-westus-001"
-        [32m+[0m [0m[1m[0mresource_group_name[0m[0m   = "rg-dev-westus-001"
+        [32m+[0m [0m[1m[0mname[0m[0m                  = "vnet-dev-westeurope-001"
+        [32m+[0m [0m[1m[0mresource_group_name[0m[0m   = "rg-dev-westeurope-001"
         [32m+[0m [0m[1m[0msubnet[0m[0m                = (known after apply)
         [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
         [32m+[0m [0m[1m[0mvm_protection_enabled[0m[0m = false
@@ -676,69 +676,92 @@ When you deployed infrastructure following the instructions above, your ourput s
         terraform apply "solution.plan"
     [0m[1mazurerm_resource_group.webserverTfPackerRG: Creating...[0m[0m
     [0m[1mazurerm_resource_group.webserverTfPackerRG: Creation complete after 1s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceG
-    roups/rg-dev-westus-001][0m
-    [0m[1mazurerm_availability_set.webserverTfPackerAVAIL: Creating...[0m[0m
+    roups/rg-dev-westeurope-001][0m
     [0m[1mazurerm_virtual_network.webserverTfPackerVNET: Creating...[0m[0m
     [0m[1mazurerm_public_ip.webserverTfPackerPIP: Creating...[0m[0m
+    [0m[1mazurerm_availability_set.webserverTfPackerAVAIL: Creating...[0m[0m
     [0m[1mazurerm_managed_disk.webserverTfPackerMD: Creating...[0m[0m
     [0m[1mazurerm_network_security_group.webserverTfPackerNSG: Creating...[0m[0m
-    [0m[1mazurerm_availability_set.webserverTfPackerAVAIL: Creation complete after 2s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/reso
-    urceGroups/rg-dev-westus-001/providers/Microsoft.Compute/availabilitySets/avail-dev-westus-001][0m
+    [0m[1mazurerm_availability_set.webserverTfPackerAVAIL: Creation complete after 1s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/reso
+    urceGroups/rg-dev-westeurope-001/providers/Microsoft.Compute/availabilitySets/avail-dev-westeurope-001][0m
     [0m[1mazurerm_public_ip.webserverTfPackerPIP: Creation complete after 3s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroup
-    s/rg-dev-westus-001/providers/Microsoft.Network/publicIPAddresses/pip-dev-westus-001][0m
+    s/rg-dev-westeurope-001/providers/Microsoft.Network/publicIPAddresses/pip-dev-westeurope-001][0m
     [0m[1mazurerm_lb.webserverTfPackerLB: Creating...[0m[0m
-    [0m[1mazurerm_managed_disk.webserverTfPackerMD: Creation complete after 4s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGro
-    ups/rg-dev-westus-001/providers/Microsoft.Compute/disks/md-dev-westus-001][0m
+    [0m[1mazurerm_managed_disk.webserverTfPackerMD: Creation complete after 3s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGro
+    ups/rg-dev-westeurope-001/providers/Microsoft.Compute/disks/md-dev-westeurope-001][0m
+    [0m[1mazurerm_network_security_group.webserverTfPackerNSG: Creation complete after 4s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/
+    resourceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/networkSecurityGroups/nsg-dev-westeurope-001][0m
     [0m[1mazurerm_lb.webserverTfPackerLB: Creation complete after 2s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev
-    -westus-001/providers/Microsoft.Network/loadBalancers/lbi-dev-westus-001][0m
+    -westeurope-001/providers/Microsoft.Network/loadBalancers/lbi-dev-westeurope-001][0m
     [0m[1mazurerm_lb_backend_address_pool.webserverTfPackerBackendLB: Creating...[0m[0m
-    [0m[1mazurerm_network_security_group.webserverTfPackerNSG: Creation complete after 6s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/
-    resourceGroups/rg-dev-westus-001/providers/Microsoft.Network/networkSecurityGroups/nsg-dev-westus-001][0m
-    [0m[1mazurerm_virtual_network.webserverTfPackerVNET: Creation complete after 6s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resour
-    ceGroups/rg-dev-westus-001/providers/Microsoft.Network/virtualNetworks/vnet-dev-westus-001][0m
+    [0m[1mazurerm_virtual_network.webserverTfPackerVNET: Creation complete after 5s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resour
+    ceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/virtualNetworks/vnet-dev-westeurope-001][0m
     [0m[1mazurerm_subnet.webserverTfPackerSNET: Creating...[0m[0m
-    [0m[1mazurerm_lb_backend_address_pool.webserverTfPackerBackendLB: Creation complete after 1s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6
-    b80433/resourceGroups/rg-dev-westus-001/providers/Microsoft.Network/loadBalancers/lbi-dev-westus-001/backendAddressPools/backend-address-dev-wes
-    tus-001][0m
+    [0m[1mazurerm_lb_backend_address_pool.webserverTfPackerBackendLB: Creation complete after 2s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6
+    b80433/resourceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/loadBalancers/lbi-dev-westeurope-001/backendAddressPools/backend-address
+    -dev-westeurope-001][0m
     [0m[1mazurerm_subnet.webserverTfPackerSNET: Creation complete after 4s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/
-    rg-dev-westus-001/providers/Microsoft.Network/virtualNetworks/vnet-dev-westus-001/subnets/snet-dev-westus-001][0m
+    rg-dev-westeurope-001/providers/Microsoft.Network/virtualNetworks/vnet-dev-westeurope-001/subnets/snet-dev-westeurope-001][0m
     [0m[1mazurerm_network_interface.webserverTfPackerNIC[0]: Creating...[0m[0m
     [0m[1mazurerm_network_interface.webserverTfPackerNIC[1]: Creating...[0m[0m
-    [0m[1mazurerm_network_interface.webserverTfPackerNIC[1]: Creation complete after 2s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/re
-    sourceGroups/rg-dev-westus-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westus-001-server2-udacity][0m
-    [0m[1mazurerm_network_interface.webserverTfPackerNIC[0]: Creation complete after 3s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/re
-    sourceGroups/rg-dev-westus-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westus-001-server1-udacity][0m
-    [0m[1mazurerm_network_interface_backend_address_pool_association.webserverTfPackerBackendNicLB[1]: Creating...[0m[0m
+    [0m[1mazurerm_network_interface.webserverTfPackerNIC[0]: Creation complete after 2s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/re
+    sourceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westeurope-001-server1-udacity][0m
+    [0m[1mazurerm_network_interface.webserverTfPackerNIC[1]: Creation complete after 3s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/re
+    sourceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westeurope-001-server2-udacity][0m
     [0m[1mazurerm_network_interface_backend_address_pool_association.webserverTfPackerBackendNicLB[0]: Creating...[0m[0m
+    [0m[1mazurerm_network_interface_backend_address_pool_association.webserverTfPackerBackendNicLB[1]: Creating...[0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[0]: Creating...[0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Creating...[0m[0m
+    [0m[1mazurerm_network_interface_backend_address_pool_association.webserverTfPackerBackendNicLB[1]: Creation complete after 1s [id=/subscriptio
+    ns/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westeurope-00
+    1-server2-udacity/ipConfigurations/ipconfig-dev-westeurope-001-udacity|/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev
+    -westeurope-001/providers/Microsoft.Network/loadBalancers/lbi-dev-westeurope-001/backendAddressPools/backend-address-dev-westeurope-001][0m
     [0m[1mazurerm_network_interface_backend_address_pool_association.webserverTfPackerBackendNicLB[0]: Creation complete after 1s [id=/subscriptio
-    ns/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev-westus-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westus-001-server
-    1-udacity/ipConfigurations/ipconfig-dev-westus-001-udacity|/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev-westus-001/
-    providers/Microsoft.Network/loadBalancers/lbi-dev-westus-001/backendAddressPools/backend-address-dev-westus-001][0m
-    [0m[1mazurerm_network_interface_backend_address_pool_association.webserverTfPackerBackendNicLB[1]: Creation complete after 7s [id=/subscriptio
-    ns/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev-westus-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westus-001-server
-    2-udacity/ipConfigurations/ipconfig-dev-westus-001-udacity|/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev-westus-001/
-    providers/Microsoft.Network/loadBalancers/lbi-dev-westus-001/backendAddressPools/backend-address-dev-westus-001][0m
+    ns/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev-westeurope-001/providers/Microsoft.Network/networkInterfaces/nic-dev-westeurope-00
+    1-server1-udacity/ipConfigurations/ipconfig-dev-westeurope-001-udacity|/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6b80433/resourceGroups/rg-dev
+    -westeurope-001/providers/Microsoft.Network/loadBalancers/lbi-dev-westeurope-001/backendAddressPools/backend-address-dev-westeurope-001][0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Still creating... [10s elapsed][0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[0]: Still creating... [10s elapsed][0m[0m
-    [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Still creating... [20s elapsed][0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[0]: Still creating... [20s elapsed][0m[0m
+    [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Still creating... [20s elapsed][0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[0]: Still creating... [30s elapsed][0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Still creating... [30s elapsed][0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Still creating... [40s elapsed][0m[0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[0]: Still creating... [40s elapsed][0m[0m
-    [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Creation complete after 48s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6
-    b80433/resourceGroups/rg-dev-westus-001/providers/Microsoft.Compute/virtualMachines/linux-vm-dev-westus-001-1][0m
     [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[0]: Creation complete after 48s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6
-    b80433/resourceGroups/rg-dev-westus-001/providers/Microsoft.Compute/virtualMachines/linux-vm-dev-westus-001-0][0m
+    b80433/resourceGroups/rg-dev-westeurope-001/providers/Microsoft.Compute/virtualMachines/linux-vm-dev-westeurope-001-0][0m
+    [0m[1mazurerm_linux_virtual_machine.webserverTfPackerLinuxVM[1]: Creation complete after 48s [id=/subscriptions/78edc3c6-6f4c-46b2-8fed-9503d6
+    b80433/resourceGroups/rg-dev-westeurope-001/providers/Microsoft.Compute/virtualMachines/linux-vm-dev-westeurope-001-1][0m
     [0m[1m[32m
     Apply complete! Resources: 15 added, 0 changed, 0 destroyed.
     [0m
     Deploy steps for the TF resources finished successfully !
     ```
-    ![Terraform-Resources](https://i.imgur.com/6oi0jvM.png)
+    ![Terraform-Resources](https://i.imgur.com/G0GY2BD.png)
 
 8. DeleteResource.ps1 Output
     ![Terraform-Resources](https://i.imgur.com/NDtEtvh.png)
+
+
+### References
+1. https://docs.microsoft.com/en-us/azure/governance/policy/how-to/programmatically-create
+2. https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer
+3. https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure
+4. https://docs.microsoft.com/en-us/learn/modules/authenticate-apps-with-managed-identities/?WT.mc_id=udacity_learn-wwl
+5. https://docs.microsoft.com/en-us/azure/developer/terraform/create-vm-cluster-with-infrastructure
+6. https://medium.com/@yoursshaan2212/terraform-to-provision-multiple-azure-virtual-machines-fab0020b4a6e
+7. https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-load-balancer
+8. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb
+9. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
+10. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine
+11. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk
+12. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/availability_set
+13. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_backend_address_pool_association
+14. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb_backend_address_pool
+15. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
+16. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
+17. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network
+18. https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli
+19. 
+
 
