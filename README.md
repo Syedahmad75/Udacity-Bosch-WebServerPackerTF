@@ -762,6 +762,5 @@ When you deployed infrastructure following the instructions above, your ourput s
 16. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
 17. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network
 18. https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli
-19. 
 
 
