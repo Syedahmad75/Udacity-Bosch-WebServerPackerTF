@@ -70,7 +70,7 @@ packerImage. Screenshot below-\
 Execute it using powershell ISE - `./createResources.ps1`\
 This script deploys your whole infrasturcuture using Terraform and Packer Image. Screeshot below-\
 ![Terraform-output](https://i.imgur.com/Y03FbOv.png)
-![Terraform-resources-list](https://i.imgur.com/cQRyauC.png)
+![Terraform-resources-list](https://i.imgur.com/dvVddUa.png)
 8. destroy Resources (optional)
 Execute it using powershell ISE - `./DeleteReources.ps1`\
 This script destroys your infrastructure. 
@@ -737,7 +737,7 @@ When you deployed infrastructure following the instructions above, your ourput s
     [0m
     Deploy steps for the TF resources finished successfully !
     ```
-    ![Terraform-Resources](https://i.imgur.com/G0GY2BD.png)
+    ![Terraform-Resources](https://i.imgur.com/dvVddUa.png)
 
 8. DeleteResource.ps1 Output
     ![Terraform-Resources](https://i.imgur.com/NDtEtvh.png)
